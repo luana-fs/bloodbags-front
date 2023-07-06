@@ -9,17 +9,14 @@ defineProps({
 </template>
 
 <style scoped>
-:root {
-  --primary: #49b5a1;
-}
 .button {
   color: white;
   background-color: #49b5a1;
   border-radius: 20px;
   border: none;
-  margin: 10px;
-  width: 200px;
-
+  margin: 2%;
+  padding-right: 3%;
+  padding-left: 3%;
 }
 
 .button:hover {

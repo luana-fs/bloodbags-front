@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import Header from "@/components/Header.vue";
 import AddRequestForm from "@/components/AddRequestForm.vue";
-
 </script>
 
 <template>
   <main>
     <h1>Criar Solicitação</h1>
-    <div class = "add-request-form">
+    <div class="add-request-form">
       <AddRequestForm />
     </div>
   </main>
@@ -15,19 +13,18 @@ import AddRequestForm from "@/components/AddRequestForm.vue";
 
 <style scoped>
 main {
-
   display: flex;
   flex-direction: column;
-  height: 50vh;
+  height: 50%;
+  width: 60%;
+  /* background-color: blue; */
 }
-.add-request-form{
+.add-request-form {
   display: flex;
   justify-content: center;
   justify-items: center;
   align-content: center;
   align-items: center;
-  height: 50vh;
-  width: 100%;
+  height: 100%;
 }
-
 </style>

@@ -5,7 +5,7 @@ import Header from "@/components/Header.vue";
 </script>
 
 <template>
-  <Header/>
+  <Header />
   <main id="container">
     <RouterView />
   </main>
@@ -16,11 +16,11 @@ import Header from "@/components/Header.vue";
   --primary: #49b5a1;
 }
 
-#container{
+#container {
   height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
 }
-
 </style>

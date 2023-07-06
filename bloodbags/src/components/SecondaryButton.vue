@@ -13,6 +13,8 @@ defineProps({
 .buttonSec:active {
   border-color: var(--primary);
   color: var(--primary);
+  padding-right: 3%;
+  padding-left: 3%;
 }
 
 .buttonSec:hover {

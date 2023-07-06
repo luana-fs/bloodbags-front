@@ -46,6 +46,7 @@ const types = ["A", "B", "AB", "O"];
 
 <style scoped>
 table {
+  margin-top: 3%;
   border-radius: 20px;
 }
 th {

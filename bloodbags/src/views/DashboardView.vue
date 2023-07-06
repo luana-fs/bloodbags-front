@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import Header from "@/components/Header.vue";
 import PrimaryButton from "@/components/PrimaryButton.vue";
 import SecondaryButton from "@/components/SecondaryButton.vue";
-import router from "@/router";
 import axios from "axios";
 
 import { onMounted, ref } from "vue";
@@ -31,12 +29,15 @@ onMounted(async () => {
   <div class="container">
     <h1>Bem-Vindo, {{ name }}</h1>
 
-    <div class="btn-group containerButton">
+    <div class="containerButton">
       <SecondaryButton
         @click="$router.push('/solicitations')"
         text="Ver solicitações"
       />
-      <PrimaryButton text="Criar solicitação" />
+      <PrimaryButton
+        @click="$router.push('/addRequest')"
+        text="Criar solicitação"
+      />
       <PrimaryButton @click="$router.push('/addBag')" text="Adicionar Bolsa" />
     </div>
 
@@ -51,23 +52,10 @@ onMounted(async () => {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  background-color: aquamarine;
   height: 89vh;
 }
 .containerButton {
-  height: 5%;
-
-  background-color: red;
+  margin-top: 1%;
+  margin-bottom: 10%;
 }
 </style>
-
-<!-- <script>
-export default {
-  data() {
-    return {
-      bloodbags: [],
-      childId: "",
-    };
-  },
-};
-</script> -->
