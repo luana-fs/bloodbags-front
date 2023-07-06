@@ -1,33 +1,38 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { PropType } from "vue";
 
-defineProps({
+type Hospital = {
+  id : number;
+  name: string;
+  address: string;
+  cellPhone: string;
+  bloodBags: any;
+};
+
+const props = defineProps({
   text: String,
-  hospitais: Array,
+  hospitais: Array as PropType<Hospital[]>,
+  id: String,
+  selectId: Function
 });
 
-const dropValue = ref("");
-
-function handleChange(event: Event) {
-  dropValue.value = (event.target as HTMLInputElement).value;
-}
 </script>
 
 <template>
   <BDropdown
     class="dropdown me-2"
-    text="Selecione um hospital"
+    :text="dropValue"
     :value="dropValue"
   >
     <BDropdownItem
-      @click="handleChange"
+      @click="sendIdToParent(hospital.name, hospital.id)"
       v-for="hospital in hospitais"
       :value="hospital"
-      >{{ hospital }}</BDropdownItem
+      :key="hospital.id"
+      >{{ hospital.name }}</BDropdownItem
     >
   </BDropdown>
 
-  <p>Opção selecionada: {{ dropValue }}</p>
 </template>
 
 <style>
@@ -42,8 +47,14 @@ export default {
   name: "Dropdown",
   data() {
     return {
-      dropValue: "",
+      dropValue: "Selecione um Hospital",
     };
+  },
+  methods: {
+    sendIdToParent(name: string, id: number) {
+      this.dropValue = name;
+      this.$emit('selectId', id);
+    },
   },
 };
 </script>
