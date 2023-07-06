@@ -4,6 +4,32 @@ import SecondaryButton from "./components/SecondaryButton.vue";
 </script>
 
 <template>
+  <Table
+    :data="[
+      {
+        BloodType: 'ABaa',
+        Rh: true,
+        WithdrawalDate: '05/07/2023',
+      },
+      {
+        BloodType: 'Adwewa',
+        Rh: true,
+        WithdrawalDate: '05/07/2023',
+      },
+      {
+        BloodType: 'Adwewa',
+        Rh: true,
+        WithdrawalDate: '05/07/2023',
+      },
+      {
+        BloodType: 'Adwewa',
+        Rh: true,
+        WithdrawalDate: '05/07/2023',
+      },
+    ]"
+    :titles="['Tipo Sanguíneo', 'RH', 'Data']"
+  />
+
   <RouterView />
 </template>
 
