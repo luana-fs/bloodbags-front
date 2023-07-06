@@ -16,6 +16,7 @@ import AddRequestForm from "@/components/AddRequestForm.vue";
 
 <style scoped>
 main {
+
   display: flex;
   flex-direction: column;
   height: 50vh;

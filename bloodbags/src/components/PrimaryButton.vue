@@ -19,6 +19,7 @@ defineProps({
   border: none;
   margin: 10px;
   width: 200px;
+
 }
 
 .button:hover {

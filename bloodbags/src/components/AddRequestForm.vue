@@ -13,6 +13,7 @@
         ]"
           text="Selecione um tipo sanguíneo"
       />
+
 <!--      <select v-model="request.bloodType" name="bloodtype">-->
 <!--        <option v-bind:value="0">A</option>-->
 <!--        <option v-bind:value="1">B</option>-->
