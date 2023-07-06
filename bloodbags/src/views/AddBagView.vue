@@ -4,7 +4,6 @@ import AddBagForm from "@/components/AddBagForm.vue";
 </script>
 
 <template>
-  <Header />
   <main>
     <SecondaryButton @click="$router.back()" text="Voltar" />
     <AddBagForm />

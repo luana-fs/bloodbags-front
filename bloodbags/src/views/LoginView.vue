@@ -22,7 +22,6 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Header />
   <main>
     <div class="dropdown-and-button">
       <Dropdown

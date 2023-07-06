@@ -28,7 +28,6 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Header />
   <div class="container">
     <h1>Bem-Vindo, {{ name }}</h1>
 

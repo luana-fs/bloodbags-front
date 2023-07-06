@@ -5,7 +5,6 @@ import AddRequestForm from "@/components/AddRequestForm.vue";
 </script>
 
 <template>
-  <Header />
   <main>
     <h1>Criar Solicitação</h1>
     <div class = "add-request-form">
