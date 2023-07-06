@@ -2,6 +2,27 @@
 import Header from "@/components/Header.vue";
 import PrimaryButton from "@/components/PrimaryButton.vue";
 import Dropdown from "@/components/Dropdown.vue";
+
+import { onMounted, ref } from 'vue';
+
+const hospitals = ref([]);
+
+  onMounted(async () => {
+      await axios
+      .get("https://localhost:7116/api/v1/hospital")
+      .then((response) => {
+        console.log(response.data);
+        hospitals.value = response.data;
+      })
+      .catch((error) => {
+        // TO-DO: Mostrar pop-up de erro
+        console.error(error);
+      });
+  });
+
+  function handleClick() {
+    router.push('/dashboard')
+  }
 </script>
 
 <template>
@@ -9,15 +30,10 @@ import Dropdown from "@/components/Dropdown.vue";
   <main>
     <div class="dropdown-and-button">
       <Dropdown
-        :hospitais="[
-          'Mãe de Deus',
-          'Moinhos',
-          'Ernesto Dornelles',
-          'Hospital Santa Teresa',
-        ]"
+        :hospitais="hospitals"
         text="Selecione um Hospital"
       />
-      <PrimaryButton @click="getHospitals" text="Selecionar"></PrimaryButton>
+      <PrimaryButton @click="handleClick" text="Selecionar"></PrimaryButton>
     </div>
   </main>
 </template>
@@ -41,6 +57,7 @@ main {
 
 <script lang="ts">
 import axios from "axios";
+import router from "@/router";
 
 export default {
   data() {
@@ -51,15 +68,16 @@ export default {
   methods: {
     async getHospitals() {
       await axios
-        .get("https://localhost:7116/api/v1/hospitals")
+        .get("https://localhost:7116/api/v1/hospital")
         .then((response) => {
           console.log(response.data);
+          this.hospitals = response.data;
         })
         .catch((error) => {
           // TO-DO: Mostrar pop-up de erro
           console.error(error);
         });
     },
-  },
+  }
 };
 </script>

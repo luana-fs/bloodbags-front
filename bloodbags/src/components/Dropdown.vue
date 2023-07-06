@@ -1,33 +1,41 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { PropType, ref } from "vue";
 
-defineProps({
+type Hospital = {
+  id : number;
+  name: string;
+  address: string;
+  cellPhone: string;
+  bloodBags: any;
+};
+
+const props = defineProps({
   text: String,
-  hospitais: Array,
+  hospitais: Array as PropType<Hospital[]>,
 });
 
-const dropValue = ref("");
+const dropValue = ref(props.text);
 
-function handleChange(event: Event) {
-  dropValue.value = (event.target as HTMLInputElement).value;
+function handleChange(value: string) {
+  dropValue.value = value;
 }
 </script>
 
 <template>
   <BDropdown
     class="dropdown me-2"
-    text="Selecione um hospital"
+    :text="dropValue"
     :value="dropValue"
   >
     <BDropdownItem
-      @click="handleChange"
+      @click="handleChange(hospital.name)"
       v-for="hospital in hospitais"
       :value="hospital"
-      >{{ hospital }}</BDropdownItem
+      :key="hospital.id"
+      >{{ hospital.name }}</BDropdownItem
     >
   </BDropdown>
 
-  <p>Opção selecionada: {{ dropValue }}</p>
 </template>
 
 <style>
