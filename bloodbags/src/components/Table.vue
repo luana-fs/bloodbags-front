@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import PrimaryButton from "./PrimaryButton.vue";
+
 defineProps<{
   data: [
     {
@@ -16,6 +18,7 @@ defineProps<{
     <thead>
       <tr>
         <th v-for="item in titles">{{ item }}</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -26,6 +29,9 @@ defineProps<{
           <b>{{ item?.Rh ? "+" : "-" }}</b>
         </td>
         <td>{{ item?.WithdrawalDate }}</td>
+        <td>
+          <PrimaryButton text="X" />
+        </td>
       </tr>
     </tbody>
   </table>

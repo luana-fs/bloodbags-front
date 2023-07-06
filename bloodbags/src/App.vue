@@ -33,4 +33,8 @@ import SecondaryButton from "./components/SecondaryButton.vue";
   <RouterView />
 </template>
 
-<style></style>
+<style>
+:root {
+  --primary: #49b5a1;
+}
+</style>

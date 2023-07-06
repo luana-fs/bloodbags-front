@@ -7,15 +7,13 @@ import SecondaryButton from "@/components/SecondaryButton.vue";
 <template>
   <Header />
   <div class="container">
-    <h1>Bem-Vindo, Hospital</h1>
+    <h1>Solicitações</h1>
 
     <div class="btn-group containerButton">
-      <SecondaryButton text="Ver solicitações" />
+      <SecondaryButton @click="$router.back()" text="Voltar" />
       <PrimaryButton text="Criar solicitações" />
-      <PrimaryButton text="Adicionar Bolsa" />
     </div>
 
-    <h3>Estoque de Bolsas</h3>
     <Table
       :data="[
         {
@@ -54,7 +52,11 @@ import SecondaryButton from "@/components/SecondaryButton.vue";
   height: 89vh;
 }
 .containerButton {
+  width: 50%;
+  justify-content: space-around;
   height: 5%;
+  margin-top: 3%;
+  margin-bottom: 3%;
 
   background-color: red;
 }
