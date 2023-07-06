@@ -5,7 +5,6 @@ import Dropdown from "@/components/Dropdown.vue";
 </script>
 
 <template>
-  <Header />
   <main>
     <div class="dropdown-and-button">
       <Dropdown

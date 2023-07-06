@@ -5,10 +5,8 @@ import SecondaryButton from "@/components/SecondaryButton.vue";
 </script>
 
 <template>
-  <Header />
   <div class="container">
     <h1>Solicitações</h1>
-
     <div class="btn-group containerButton">
       <SecondaryButton @click="$router.back()" text="Voltar" />
       <PrimaryButton text="Criar solicitações" />

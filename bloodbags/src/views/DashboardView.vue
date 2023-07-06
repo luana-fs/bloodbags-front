@@ -5,7 +5,6 @@ import SecondaryButton from "@/components/SecondaryButton.vue";
 </script>
 
 <template>
-  <Header />
   <div class="container">
     <h1>Bem-Vindo, Hospital</h1>
 

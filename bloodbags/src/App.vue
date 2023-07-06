@@ -1,40 +1,26 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 import SecondaryButton from "./components/SecondaryButton.vue";
+import Header from "@/components/Header.vue";
 </script>
 
 <template>
-  <!-- <Table
-    :data="[
-      {
-        BloodType: 'ABaa',
-        Rh: true,
-        WithdrawalDate: '05/07/2023',
-      },
-      {
-        BloodType: 'Adwewa',
-        Rh: true,
-        WithdrawalDate: '05/07/2023',
-      },
-      {
-        BloodType: 'Adwewa',
-        Rh: true,
-        WithdrawalDate: '05/07/2023',
-      },
-      {
-        BloodType: 'Adwewa',
-        Rh: true,
-        WithdrawalDate: '05/07/2023',
-      },
-    ]"
-    :titles="['Tipo Sanguíneo', 'RH', 'Data']"
-  /> -->
-
-  <RouterView />
+  <Header/>
+  <main id="container">
+    <RouterView />
+  </main>
 </template>
 
 <style>
 :root {
   --primary: #49b5a1;
 }
+
+#container{
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 </style>
