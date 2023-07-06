@@ -8,7 +8,7 @@ defineProps({
   <BButton class="button" variant="outline-primary">{{ text }}</BButton>
 </template>
 
-<style>
+<style scoped>
 :root {
   --primary: #49b5a1;
 }
@@ -21,10 +21,6 @@ defineProps({
 
 .button:hover {
   background-color: #49b5a1;
-}
-
-.button:active {
-  /* Arrumar cor ao clicar */
 }
 </style>
 
