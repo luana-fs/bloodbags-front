@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType, ref } from "vue";
+import { PropType } from "vue";
 
 type Hospital = {
   id : number;
@@ -12,13 +12,10 @@ type Hospital = {
 const props = defineProps({
   text: String,
   hospitais: Array as PropType<Hospital[]>,
+  id: String,
+  selectId: Function
 });
 
-const dropValue = ref(props.text);
-
-function handleChange(value: string) {
-  dropValue.value = value;
-}
 </script>
 
 <template>
@@ -28,7 +25,7 @@ function handleChange(value: string) {
     :value="dropValue"
   >
     <BDropdownItem
-      @click="handleChange(hospital.name)"
+      @click="sendIdToParent(hospital.name, hospital.id)"
       v-for="hospital in hospitais"
       :value="hospital"
       :key="hospital.id"
@@ -50,8 +47,14 @@ export default {
   name: "Dropdown",
   data() {
     return {
-      dropValue: "",
+      dropValue: "Selecione um Hospital",
     };
+  },
+  methods: {
+    sendIdToParent(name: string, id: number) {
+      this.dropValue = name;
+      this.$emit('selectId', id);
+    },
   },
 };
 </script>

@@ -19,10 +19,6 @@ const hospitals = ref([]);
         console.error(error);
       });
   });
-
-  function handleClick() {
-    router.push('/dashboard')
-  }
 </script>
 
 <template>
@@ -32,6 +28,8 @@ const hospitals = ref([]);
       <Dropdown
         :hospitais="hospitals"
         text="Selecione um Hospital"
+        :id="childId"
+        @selectId="handleIdSelected"
       />
       <PrimaryButton @click="handleClick" text="Selecionar"></PrimaryButton>
     </div>
@@ -63,6 +61,7 @@ export default {
   data() {
     return {
       hospitals: [],
+      childId: '',
     };
   },
   methods: {
@@ -78,6 +77,14 @@ export default {
           console.error(error);
         });
     },
+    handleIdSelected(id: number) {
+      console.log(id);
+      this.childId = id.toString();
+    },
+    handleClick() {
+      localStorage.setItem("hospitalId", this.childId)
+      router.push('/dashboard')
+    }
   }
 };
 </script>
