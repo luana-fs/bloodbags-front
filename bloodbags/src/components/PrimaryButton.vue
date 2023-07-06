@@ -17,6 +17,8 @@ defineProps({
   background-color: #49b5a1;
   border-radius: 20px;
   border: none;
+  margin: 10px;
+  width: 200px;
 }
 
 .button:hover {

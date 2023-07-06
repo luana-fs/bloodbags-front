@@ -8,15 +8,26 @@ import AddRequestForm from "@/components/AddRequestForm.vue";
   <Header />
   <main>
     <h1>Criar Solicitação</h1>
-    <AddRequestForm />
+    <div class = "add-request-form">
+      <AddRequestForm />
+    </div>
   </main>
 </template>
 
 <style scoped>
-.dropdown-and-button {
-  width: 100%;
+main {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+}
+.add-request-form{
   display: flex;
   justify-content: center;
+  justify-items: center;
+  align-content: center;
   align-items: center;
+  height: 50vh;
+  width: 100%;
 }
+
 </style>
