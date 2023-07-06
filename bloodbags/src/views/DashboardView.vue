@@ -10,9 +10,12 @@ import SecondaryButton from "@/components/SecondaryButton.vue";
     <h1>Bem-Vindo, Hospital</h1>
 
     <div class="btn-group containerButton">
-      <SecondaryButton text="Ver solicitações" />
+      <SecondaryButton
+        @click="$router.push('/solicitations')"
+        text="Ver solicitações"
+      />
       <PrimaryButton text="Criar solicitações" />
-      <PrimaryButton text="Adicionar Bolsa" />
+      <PrimaryButton @click="$router.push('/addBag')" text="Adicionar Bolsa" />
     </div>
 
     <h3>Estoque de Bolsas</h3>
