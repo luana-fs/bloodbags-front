@@ -1,7 +1,7 @@
 <script setup lang="ts">
-defineProps ({
-  text: String
-})
+defineProps({
+  text: String,
+});
 </script>
 
 <template>
@@ -9,15 +9,18 @@ defineProps ({
 </template>
 
 <style>
-.button{
+:root {
+  --primary: #49b5a1;
+}
+.button {
   color: white;
-  background-color: #49B5A1;
+  background-color: #49b5a1;
   border-radius: 20px;
   border: none;
 }
 
 .button:hover {
-  background-color: #49B5A1;
+  background-color: #49b5a1;
 }
 
 .button:active {
@@ -26,7 +29,7 @@ defineProps ({
 </style>
 
 <script lang="ts">
-  export default {
-    name: 'PrimaryButton'
-  }
+export default {
+  name: "PrimaryButton",
+};
 </script>
