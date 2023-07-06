@@ -4,22 +4,12 @@
   <form @submit.prevent="postData">
 
     <div class="inputs">
-      <Dropdown
-          :hospitais="[
-          'A',
-          'B',
-          'AB',
-          'O',
-        ]"
-          text="Selecione um tipo sanguíneo"
-      />
-
-<!--      <select v-model="request.bloodType" name="bloodtype">-->
-<!--        <option v-bind:value="0">A</option>-->
-<!--        <option v-bind:value="1">B</option>-->
-<!--        <option v-bind:value="2">AB</option>-->
-<!--        <option v-bind:value="3">O</option>-->
-<!--      </select>-->
+      <select v-model="request.bloodType" name="bloodtype">
+        <option v-bind:value="0">A</option>
+        <option v-bind:value="1">B</option>
+        <option v-bind:value="2">AB</option>
+        <option v-bind:value="3">O</option>
+      </select>
       <label for="rh">+</label>
       <input
           type="radio"
