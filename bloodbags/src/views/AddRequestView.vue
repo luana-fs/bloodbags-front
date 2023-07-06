@@ -7,6 +7,7 @@ import AddRequestForm from "@/components/AddRequestForm.vue";
 <template>
   <Header />
   <main>
+    <h1>Criar Solicitação</h1>
     <AddRequestForm />
   </main>
 </template>
