@@ -1,15 +1,10 @@
 <script setup lang="ts">
+import BloodBag from "@/interfaces/BloodBag";
 import PrimaryButton from "./PrimaryButton.vue";
 
 defineProps<{
-  data: [
-    {
-      bloodType: number;
-      rh: true;
-      withdrawalDate: Date;
-    }
-  ];
-  titles: [string];
+  data: BloodBag[];
+  titles: string[];
 }>();
 
 function formatDate(dates: Date) {
@@ -31,13 +26,13 @@ const types = ["A", "B", "AB", "O"];
 
     <tbody>
       <tr v-for="item in data">
-        <td>{{ types[item?.bloodType] }}</td>
+        <td>{{ types[item.bloodType!] }}</td>
         <td>
-          <b>{{ item?.rh ? "+" : "-" }}</b>
+          <b>{{ item.rh! ? "+" : "-" }}</b>
         </td>
-        <td>{{ formatDate(item?.withdrawalDate) }}</td>
+        <td>{{ formatDate(item.withdrawalDate!) }}</td>
         <td>
-          <PrimaryButton text="X" />
+          <PrimaryButton text="Excluir" />
         </td>
       </tr>
     </tbody>

@@ -12,6 +12,7 @@ declare module 'vue' {
     BButton: typeof import('bootstrap-vue-next')['BButton']
     BDropdown: typeof import('bootstrap-vue-next')['BDropdown']
     BDropdownItem: typeof import('bootstrap-vue-next')['BDropdownItem']
+    BloodBagsTable: typeof import('./src/components/BloodBagsTable.vue')['default']
     BNav: typeof import('bootstrap-vue-next')['BNav']
     Dropdown: typeof import('./src/components/Dropdown.vue')['default']
     Header: typeof import('./src/components/Header.vue')['default']
@@ -19,6 +20,7 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SecondaryButton: typeof import('./src/components/SecondaryButton.vue')['default']
+    SolicitationsTable: typeof import('./src/components/SolicitationsTable.vue')['default']
     Table: typeof import('./src/components/Table.vue')['default']
   }
 }

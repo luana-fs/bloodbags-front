@@ -2,6 +2,7 @@
 import Header from "@/components/Header.vue";
 import PrimaryButton from "@/components/PrimaryButton.vue";
 import SecondaryButton from "@/components/SecondaryButton.vue";
+import SolicitationsTable from "@/components/SolicitationsTable.vue";
 import axios from "axios";
 
 import { onMounted, ref } from "vue";
@@ -36,30 +37,9 @@ int amount -->
       <PrimaryButton text="Criar solicitações" />
     </div>
 
-    <Table
-      :data="[
-        {
-          BloodType: 'AB',
-          Rh: true,
-          WithdrawalDate: '05/07/2023',
-        },
-        {
-          BloodType: 'O Mockado',
-          Rh: true,
-          WithdrawalDate: '05/07/2023',
-        },
-        {
-          BloodType: 'A mochado',
-          Rh: true,
-          WithdrawalDate: '05/07/2023',
-        },
-        {
-          BloodType: 'Adwewa',
-          Rh: true,
-          WithdrawalDate: '05/07/2023',
-        },
-      ]"
-      :titles="['Tipo Sanguíneo', 'RH', 'Quantidade']"
+    <SolicitationsTable
+      :data="requests"
+      :titles="['Hospital', 'Tipo Sanguíneo', 'RH', 'Quantidade', 'Ações']"
     />
   </div>
 </template>

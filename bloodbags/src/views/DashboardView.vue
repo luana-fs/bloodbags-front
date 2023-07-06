@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BloodBagsTable from "@/components/BloodBagsTable.vue";
 import Header from "@/components/Header.vue";
 import PrimaryButton from "@/components/PrimaryButton.vue";
 import SecondaryButton from "@/components/SecondaryButton.vue";
@@ -14,8 +15,8 @@ const id = localStorage.getItem("hospitalId");
 
 onMounted(async () => {
   await axios
-    .get(`https://localhost:7116/api/v1/bloodbag/2`)
-    // .get(`https://localhost:7116/api/v1/bloodbag/${id}`)
+    // .get(`https://localhost:7116/api/v1/bloodbag/2`)
+    .get(`https://localhost:7116/api/v1/bloodbag/${id}`)
     .then((response) => {
       console.log(response.data);
       bloodbags.value = response.data;
@@ -41,7 +42,7 @@ onMounted(async () => {
     </div>
 
     <h3>Estoque de Bolsas</h3>
-    <Table :data="bloodbags" :titles="['Tipo Sanguíneo', 'RH', 'Data']" />
+    <BloodBagsTable :data="bloodbags" :titles="['Tipo Sanguíneo', 'RH', 'Data']" />
   </div>
 </template>
 
