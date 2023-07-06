@@ -5,7 +5,7 @@
       <form @submit.prevent="postData">
         <!-- <input type="number" v-model="bloodbag.bloodType" placeholder="Tipo Sanguíneo"> -->
         <select v-model="bloodbag.bloodType" class="input" id="blood-dropdown" name="bloodtype">
-          <option value="undefined" disabled>Tipo Sanguíneo</option>
+          <option :value="undefined" disabled>Tipo Sanguíneo</option>
           <option v-bind:value="0">A</option>
           <option v-bind:value="1">B</option>
           <option v-bind:value="2">AB</option>
@@ -86,13 +86,14 @@ border-radius: 30px;
 color: white;
 border: none;
 padding: 10px;
+border: 2px solid var(--primary);
 }
 
 #submit:hover {
 transition: .4s;
 background-color: #FAFAFA;
 color: var(--primary);
-border: 2px solid var(--primary);
+
 }
 
 .input {
@@ -105,6 +106,17 @@ background-color: #FAFAFA;
 margin: var(--primary);
 }
 
+button {
+  cursor: pointer;
+}
 
+button:disabled {
+  background-color: #FAFAFA !important;
+  border-color: lightgray !important;
+  color: lightgray !important;
+}
+button:disabled:hover {
+  cursor: not-allowed !important;
+}
 
 </style>

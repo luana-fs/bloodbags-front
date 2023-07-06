@@ -1,7 +1,7 @@
 interface BloodBag {
     hospitalId?: number,
     rh?: boolean,
-    bloodType: number | undefined
+    bloodType?: number
   }
 
   export default BloodBag;
