@@ -4,7 +4,7 @@ import SecondaryButton from "./components/SecondaryButton.vue";
 </script>
 
 <template>
-  <Table
+  <!-- <Table
     :data="[
       {
         BloodType: 'ABaa',
@@ -28,23 +28,9 @@ import SecondaryButton from "./components/SecondaryButton.vue";
       },
     ]"
     :titles="['Tipo Sanguíneo', 'RH', 'Data']"
-  />
+  /> -->
 
   <RouterView />
 </template>
 
-<style>
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 89vh;
-}
-
-.dropdown-and-button {
-  width: 100%;
-  height: 100vh;
-  background-color: #fafafa;
-}
-</style>
+<style></style>

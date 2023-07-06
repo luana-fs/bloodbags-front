@@ -23,10 +23,18 @@ import Dropdown from "@/components/Dropdown.vue";
 </template>
 
 <style scoped>
-.dropdown-and-button {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 89vh;
+    margin: 0;
+  }
+  .dropdown-and-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 </style>
