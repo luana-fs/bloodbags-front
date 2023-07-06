@@ -3,22 +3,22 @@ import Header from "@/components/Header.vue";
 import PrimaryButton from "@/components/PrimaryButton.vue";
 import Dropdown from "@/components/Dropdown.vue";
 
-import { onMounted, ref } from 'vue';
+import { onMounted, ref } from "vue";
 
 const hospitals = ref([]);
 
-  onMounted(async () => {
-      await axios
-      .get("https://localhost:7116/api/v1/hospital")
-      .then((response) => {
-        console.log(response.data);
-        hospitals.value = response.data;
-      })
-      .catch((error) => {
-        // TO-DO: Mostrar pop-up de erro
-        console.error(error);
-      });
-  });
+onMounted(async () => {
+  await axios
+    .get("https://localhost:7116/api/v1/hospital")
+    .then((response) => {
+      console.log(response.data);
+      hospitals.value = response.data;
+    })
+    .catch((error) => {
+      // TO-DO: Mostrar pop-up de erro
+      console.error(error);
+    });
+});
 </script>
 
 <template>
@@ -61,7 +61,8 @@ export default {
   data() {
     return {
       hospitals: [],
-      childId: '',
+      childId: "",
+      hospitalName: "",
     };
   },
   methods: {
@@ -77,14 +78,16 @@ export default {
           console.error(error);
         });
     },
-    handleIdSelected(id: number) {
+    handleIdSelected(id: number, name: string) {
       console.log(id);
       this.childId = id.toString();
+      this.hospitalName = name;
     },
     handleClick() {
-      localStorage.setItem("hospitalId", this.childId)
-      router.push('/dashboard')
-    }
-  }
+      localStorage.setItem("hospitalId", this.childId);
+      localStorage.setItem("hospitalName", this.hospitalName);
+      router.push("/dashboard");
+    },
+  },
 };
 </script>

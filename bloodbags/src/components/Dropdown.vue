@@ -2,7 +2,7 @@
 import { PropType } from "vue";
 
 type Hospital = {
-  id : number;
+  id: number;
   name: string;
   address: string;
   cellPhone: string;
@@ -13,17 +13,12 @@ const props = defineProps({
   text: String,
   hospitais: Array as PropType<Hospital[]>,
   id: String,
-  selectId: Function
+  selectId: Function,
 });
-
 </script>
 
 <template>
-  <BDropdown
-    class="dropdown me-2"
-    :text="dropValue"
-    :value="dropValue"
-  >
+  <BDropdown class="dropdown me-2" :text="dropValue" :value="dropValue">
     <BDropdownItem
       @click="sendIdToParent(hospital.name, hospital.id)"
       v-for="hospital in hospitais"
@@ -32,7 +27,6 @@ const props = defineProps({
       >{{ hospital.name }}</BDropdownItem
     >
   </BDropdown>
-
 </template>
 
 <style>
@@ -53,7 +47,7 @@ export default {
   methods: {
     sendIdToParent(name: string, id: number) {
       this.dropValue = name;
-      this.$emit('selectId', id);
+      this.$emit("selectId", id, name);
     },
   },
 };

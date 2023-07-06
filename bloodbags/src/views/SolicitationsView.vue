@@ -2,7 +2,31 @@
 import Header from "@/components/Header.vue";
 import PrimaryButton from "@/components/PrimaryButton.vue";
 import SecondaryButton from "@/components/SecondaryButton.vue";
+import axios from "axios";
+
+import { onMounted, ref } from "vue";
+
+const requests = ref([]);
+
+onMounted(async () => {
+  // const id = localStorage.getItem("hospitalId");
+  await axios
+    .get(`https://localhost:7116/api/v1/request`)
+    .then((response) => {
+      console.log(response.data);
+      requests.value = response.data;
+    })
+    .catch((error) => {
+      // TO-DO: Mostrar pop-up de erro
+      console.error(error);
+    });
+});
 </script>
+
+<!-- int idHospital
+rh booleano
+bloodType number
+int amount -->
 
 <template>
   <Header />
@@ -37,7 +61,7 @@ import SecondaryButton from "@/components/SecondaryButton.vue";
           WithdrawalDate: '05/07/2023',
         },
       ]"
-      :titles="['Tipo Sanguíneo', 'RH', 'Data']"
+      :titles="['Tipo Sanguíneo', 'RH', 'Quantidade']"
     />
   </div>
 </template>

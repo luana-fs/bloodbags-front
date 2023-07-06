@@ -4,13 +4,20 @@ import PrimaryButton from "./PrimaryButton.vue";
 defineProps<{
   data: [
     {
-      BloodType: string;
-      Rh: true;
-      WithdrawalDate: String;
+      bloodType: number;
+      rh: true;
+      withdrawalDate: Date;
     }
   ];
   titles: [string];
 }>();
+
+function formatDate(dates: Date) {
+  const date = new Date(dates);
+  return `${date.getDay()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+}
+
+const types = ["A", "B", "AB", "O"];
 </script>
 
 <template>
@@ -24,11 +31,11 @@ defineProps<{
 
     <tbody>
       <tr v-for="item in data">
-        <td>{{ item?.BloodType }}</td>
+        <td>{{ types[item?.bloodType] }}</td>
         <td>
-          <b>{{ item?.Rh ? "+" : "-" }}</b>
+          <b>{{ item?.rh ? "+" : "-" }}</b>
         </td>
-        <td>{{ item?.WithdrawalDate }}</td>
+        <td>{{ formatDate(item?.withdrawalDate) }}</td>
         <td>
           <PrimaryButton text="X" />
         </td>
