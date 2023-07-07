@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import Header from "@/components/Header.vue";
 import AddBagForm from "@/components/AddBagForm.vue";
+import HomeButton from "@/components/HomeButton.vue";
 </script>
 
 <template>
   <main>
+    <HomeButton />
     <SecondaryButton
       @click="$router.back()"
       text="Voltar"
@@ -22,7 +24,7 @@ import AddBagForm from "@/components/AddBagForm.vue";
   align-items: center;
 }
 
-.back-button {
+button {
   margin-top: -100px;
 }
 </style>
