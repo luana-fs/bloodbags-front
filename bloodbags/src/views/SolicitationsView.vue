@@ -7,6 +7,8 @@ import axios from "axios";
 
 import { onMounted, ref } from "vue";
 
+const name = localStorage.getItem("hospitalName");
+
 const requests = ref([]);
 
 onMounted(async () => {
@@ -38,7 +40,8 @@ int amount -->
 
 <template>
   <div class="container">
-    <h1>Solicitações</h1>
+    <h1>{{ name }}</h1>
+    <h2>Solicitações</h2>
     <div class="containerButton">
       <SecondaryButton @click="$router.back()" text="Voltar" />
       <PrimaryButton
@@ -67,6 +70,9 @@ int amount -->
   align-content: center;
   position: absolute;
   top:120px;
+}
+h1 {
+  margin-top: -100px;
 }
 .containerButton {
   width: 100%;
