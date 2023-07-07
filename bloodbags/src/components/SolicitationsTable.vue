@@ -146,17 +146,12 @@ export default {
         row.showInput = false
       })
     },
-<<<<<<< Updated upstream
-    isMyRequest(){
-      
-=======
     isMyRequest(hospitalId: number) {
       if (hospitalId == +localStorage.getItem("hospitalId")!) {
         return false;
       } else {
         return true;
       }
->>>>>>> Stashed changes
     }
   },
 };
