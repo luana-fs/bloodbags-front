@@ -24,8 +24,12 @@ button {
   margin-top: 2%;
 }
 
+#router{
+  margin-top: 100px
+}
+
 #container {
-  height: calc(100vh - 50px);
+  height: calc(100vh);
   display: flex;
   justify-content: center;
   align-items: center;
