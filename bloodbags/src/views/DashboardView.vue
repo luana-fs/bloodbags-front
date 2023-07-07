@@ -33,6 +33,10 @@ function handleDeleteClicked() {
   getBloodBags(+id!);
 }
 
+function handleLogout() {
+  localStorage.removeItem("hospitalName");
+  localStorage.removeItem("hospitalId");
+}
 </script>
 
 <template>
@@ -49,6 +53,7 @@ function handleDeleteClicked() {
         text="Criar solicitação"
       />
       <PrimaryButton @click="$router.push('/addBag')" text="Adicionar Bolsa" />
+      <PrimaryButton @click="handleLogout(), $router.push('/')" text="Sair" />
     </div>
 
     <h3>Estoque de Bolsas</h3>

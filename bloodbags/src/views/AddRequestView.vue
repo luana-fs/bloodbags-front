@@ -5,6 +5,7 @@ import AddRequestForm from "@/components/AddRequestForm.vue";
 <template>
   <main>
     <div class="back-button">
+      <HomeButton />
       <SecondaryButton
         @click="$router.back()"
         text="Voltar"
