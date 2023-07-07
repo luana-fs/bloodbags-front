@@ -34,7 +34,10 @@ int amount -->
     <h1>Solicitações</h1>
     <div class="containerButton">
       <SecondaryButton @click="$router.back()" text="Voltar" />
-      <PrimaryButton text="Criar solicitação" />
+      <PrimaryButton
+        @click="$router.push('/addRequest')"
+        text="Criar solicitação"
+      />
     </div>
 
     <SolicitationsTable

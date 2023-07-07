@@ -44,4 +44,14 @@ const router = createRouter({
   ],
 });
 
+router.beforeEach(async (to, from, next) => {
+  const id = localStorage.getItem("hospitalId");
+
+  if (!id && to.name !== "home") {
+    next({ name: "home" });
+  } else {
+    next();
+  }
+});
+
 export default router;
