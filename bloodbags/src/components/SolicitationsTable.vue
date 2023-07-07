@@ -46,11 +46,13 @@ const types = ["A", "B", "AB", "O"];
           </div>
         </td>
         <td id="attend-action-column" v-else="">
-          <PrimaryButton
-            id="attend-button"
-            text="Atender"
-            @click="() => {changeAmountInput(); item.showInput = true }"
-          />
+          <template v-if="isMyRequest(item.hospitalId!)">
+            <PrimaryButton
+              id="attend-button"
+              text="Atender"
+              @click="() => {changeAmountInput(); item.showInput = true }"
+            />
+          </template>
         </td>
         <td>
           <!-- <PrimaryButton text="Excluir" /> -->
@@ -144,8 +146,17 @@ export default {
         row.showInput = false
       })
     },
+<<<<<<< Updated upstream
     isMyRequest(){
       
+=======
+    isMyRequest(hospitalId: number) {
+      if (hospitalId == +localStorage.getItem("hospitalId")!) {
+        return false;
+      } else {
+        return true;
+      }
+>>>>>>> Stashed changes
     }
   },
 };
