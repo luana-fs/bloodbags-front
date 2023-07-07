@@ -1,5 +1,5 @@
 # Documentação do Projeto de Gerenciamento de Bolsas de Sangue em Vue.js
-Introdução
+## Introdução
 Esta documentação descreve o projeto de um sistema web construído em Vue.js que permite que hospitais gerenciem bolsas de sangue entre si. O sistema possibilita aos hospitais visualizar o estoque de bolsas de sangue disponíveis, checar solicitações de outros hospitais, adicionar e remover bolsas de sangue, e atender as solicitações de outros hospitais.
 
 ## Requisitos do Sistema
