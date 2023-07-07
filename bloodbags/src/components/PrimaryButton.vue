@@ -28,7 +28,7 @@ defineProps({
   border: gray 1.5px solid !important;
   color: gray !important;
 }
-.button:disabled:hover {
+.button:hover:disabled {
   cursor: not-allowed !important;
 }
 </style>
