@@ -1,15 +1,22 @@
 <template>
   <form @submit.prevent="postData">
     <div class="inputs">
-      <BDropdown v-model="request.bloodType" name="bloodtype" text="Tipo">
-        <BDropdownItem v-bind:value="0">A</BDropdownItem>
-        <BDropdownItem v-bind:value="1">B</BDropdownItem>
-        <BDropdownItem v-bind:value="2">AB</BDropdownItem>
-        <BDropdownItem v-bind:value="3">O</BDropdownItem>
+      <BDropdown name="bloodtype" type="number" text="Tipo" required>
+        <BDropdownItem @click="handleBloodTypeChange(0)">A</BDropdownItem>
+        <BDropdownItem @click="handleBloodTypeChange(1)">B</BDropdownItem>
+        <BDropdownItem @click="handleBloodTypeChange(2)">AB</BDropdownItem>
+        <BDropdownItem @click="handleBloodTypeChange(3)">O</BDropdownItem>
       </BDropdown>
-
+      <!-- <select v-model="request.bloodType" name="bloodtype" id="">
+        <option value="0">A</option>
+        <option value="1">B</option>
+        <option value="2">AB</option>
+        <option value="3">O</option>
+      </select> -->
+      <span>{{ types[request.bloodType!] }}</span>
       <div class="radio-buttons">
-        <input
+        <label for="rh">RH</label>
+        <input required
           class="form-check-input"
           type="radio"
           name="rh"
@@ -17,7 +24,7 @@
           v-bind:value="true"
         />
         <label class="form-check-label mr-1" for="rh"> + </label>
-        <input
+        <input required
           class="form-check-input"
           type="radio"
           name="rh"
@@ -27,9 +34,9 @@
         <label class="form-check-label" for="rh">-</label>
       </div>
     </div>
-    <input type="number" v-model="request.amount" placeholder="Quantidade" />
+    <input required type="number" v-model="request.amount" placeholder="Quantidade" />
     <div class="button-container">
-      <PrimaryButton text="Solicitar" id="submit" type="submit" />
+      <PrimaryButton :is-off="isDisabled()" text="Solicitar" id="submit" type="submit" />
     </div>
   </form>
 </template>
@@ -45,11 +52,12 @@ export default {
   data() {
     return {
       request: {
-        bloodType: 1,
-        hospitalId: 1,
-        rh: true,
-        amount: 1,
+        bloodType: undefined,
+        hospitalId: +localStorage.getItem('hospitalId')!,
+        rh: undefined,
+        amount: undefined,
       } as Request,
+      types : ["A", "B", "AB", "O"]
     };
   },
   methods: {
@@ -68,6 +76,15 @@ export default {
           console.error(error);
         });
     },
+    handleBloodTypeChange(value: any) {
+      this.request.bloodType = value;
+    },
+    isDisabled() {
+    if (this.request.bloodType == undefined || this.request.rh == undefined || (this.request.amount == 0 || this.request.amount == undefined)) {
+      return true;
+    }
+    return false;
+  }
   },
 };
 </script>
@@ -114,5 +131,10 @@ label {
   width: 90%;
   padding-top: 3%;
   /* background-color: aqua; */
+}
+
+span{
+  margin-left: 7px;
+  font-size: 20px;
 }
 </style>

@@ -22,4 +22,5 @@ import AddBagForm from "@/components/AddBagForm.vue";
   margin-top: -100px;
 }
 
+
 </style>

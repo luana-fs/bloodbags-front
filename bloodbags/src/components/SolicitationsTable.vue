@@ -27,8 +27,28 @@ const types = ["A", "B", "AB", "O"];
           <b>{{ item.rh! ? "+" : "-" }}</b>
         </td>
         <td>{{ item.amount }}</td>
-        <td>
-          <PrimaryButton text="Atender" @click="handleAttendClick(item.id!, item.amount!)"/>
+        <td id="amount-td" v-if="item.showInput">
+          <input
+            id="amount-input"
+            required
+            type="number"
+            v-model="selectedAmount"
+            placeholder="Quantidade"
+            :maxlength="item.amount"
+            :max="item.amount"
+          />
+          <PrimaryButton
+            id="amount-input"
+            text="Atender"
+            @click="handleAttendClick(item.id!)"
+          />
+        </td>
+        <td id="attend-action-column" v-else="">
+          <PrimaryButton
+            id="attend-button"
+            text="Atender"
+            @click="() => {changeAmountInput(); item.showInput = true }"
+          />
         </td>
         <td>
           <PrimaryButton text="Excluir" />
@@ -37,7 +57,7 @@ const types = ["A", "B", "AB", "O"];
     </tbody>
   </table>
 </template>
-
+<!-- @click="handleAttendClick(item.id!, item.amount!)" -->
 <style scoped>
 table {
   border-radius: 20px;
@@ -52,30 +72,75 @@ th {
 
 td {
   border-color: #49b5a1;
-  border-bottom-width: 2px;
+  padding: 5px 0;
+  border-top-width: 2px;
   text-align: center;
   color: #252525;
+}
+
+#amount-td {
+  position: relative;
+}
+
+input#amount-input {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 3%;
+  border-radius: 10px;
+  border: none;
+  width: 90px;
+  background-color: #fff !important;
+  border: #49b5a1 1px solid !important;
+  color: #49b5a1;
+  height: 36px;
+}
+#amount-input {
+  position: absolute;
+  top: 6.5px;
+  bottom: 10px;
+  right: 3%;
+  border-radius: 10px;
+  border: none;
+  width: 90px;
+  background-color: #fff !important;
+  border: #49b5a1 1px solid !important;
+  color: #49b5a1;
+  height: 36px;
+}
+#attend-button {
+  width: 100%;
+}
+#attend-action-column {
+  width: 200px;
 }
 </style>
 
 <script lang="ts">
 import axios from "axios";
+import { ref } from "vue";
+const selectedAmount = ref(0);
+const showInput = ref(false);
 export default {
-    
-    methods: {
-        async handleAttendClick(idRequest: number, amount: number) {
-        await axios
-            .post(`https://localhost:7116/api/v1/request/donate`,
-            {
-                donorId:+localStorage.getItem("hospitalId")!,
-                requestId:idRequest,
-                amount
-            })
-            .catch((error) => {
-            // TO-DO: Mostrar pop-up de erro
-            console.error(error);
-            });
-        }
+  methods: {
+    async handleAttendClick(idRequest: number) {
+      await axios
+        .post(`https://localhost:7116/api/v1/request/donate`, {
+          donorId: +localStorage.getItem("hospitalId")!,
+          requestId: idRequest,
+          amount: selectedAmount.value,
+        })
+        .catch((error) => {
+          // TO-DO: Mostrar pop-up de erro
+          console.error(error);
+        });
     },
+    changeAmountInput() {
+      selectedAmount.value = 0;
+      this.data.forEach((row)=>{
+        row.showInput = false
+      })
+    },
+  },
 };
 </script>

@@ -1,18 +1,19 @@
 <script setup lang="ts">
 defineProps({
   text: String,
+  isOff: Boolean
 });
 </script>
 
 <template>
-  <BButton class="button" variant="outline-primary">{{ text }}</BButton>
+  <BButton :disabled="isOff" class="button" variant="outline-primary">{{ text }}</BButton>
 </template>
 
 <style scoped>
 .button {
   color: white;
   background-color: #49b5a1;
-  border-radius: 20px;
+  border-radius: 10px;
   border: none;
   margin: 2%;
   padding-right: 3%;
@@ -20,7 +21,18 @@ defineProps({
 }
 
 .button:hover {
-  background-color: #49b5a1;
+  background-color: #fff !important;
+  border: #49b5a1 1px solid  !important;
+  color : #49b5a1
+
+}
+.button:disabled {
+  background-color: white !important;
+  border: gray 1.5px solid !important;
+  color: gray !important;
+}
+.button:disabled:hover {
+  cursor: not-allowed !important;
 }
 </style>
 

@@ -55,11 +55,11 @@ onMounted(async () => {
 
 <style scoped>
 .container {
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  height: 89vh;
+  height: calc(100vh - 130px);
 }
 .containerButton {
   margin-top: 1%;
