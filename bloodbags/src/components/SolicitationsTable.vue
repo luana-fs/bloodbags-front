@@ -63,6 +63,7 @@ const types = ["A", "B", "AB", "O"];
 <style scoped>
 table {
   border-radius: 20px;
+  overflow-y: auto;
 }
 th {
   text-align: center;

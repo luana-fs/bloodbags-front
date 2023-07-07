@@ -9,13 +9,11 @@ declare module 'vue' {
   export interface GlobalComponents {
     AddBagForm: typeof import('./src/components/AddBagForm.vue')['default']
     AddRequestForm: typeof import('./src/components/AddRequestForm.vue')['default']
-    BackButton: typeof import('./src/components/BackButton.vue')['default']
     BButton: typeof import('bootstrap-vue-next')['BButton']
     BDropdown: typeof import('bootstrap-vue-next')['BDropdown']
     BDropdownItem: typeof import('bootstrap-vue-next')['BDropdownItem']
     BloodBagsTable: typeof import('./src/components/BloodBagsTable.vue')['default']
     BNav: typeof import('bootstrap-vue-next')['BNav']
-    copy: typeof import('./src/components/SecondaryButton copy.vue')['default']
     Dropdown: typeof import('./src/components/Dropdown.vue')['default']
     Header: typeof import('./src/components/Header.vue')['default']
     HomeButton: typeof import('./src/components/HomeButton.vue')['default']
