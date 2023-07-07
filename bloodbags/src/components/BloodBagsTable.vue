@@ -73,7 +73,6 @@ export default {
     async handleDeleteButton(id: number) {
       await axios.delete(`https://localhost:7116/api/v1/bloodbag/${id}`)
         .then(() => {
-          // TO-DO: adicionar alertas
           this.sendDeleteInfoToParent();
         }).catch((error) => {
           console.log(error);

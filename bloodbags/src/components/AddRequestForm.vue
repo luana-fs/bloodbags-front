@@ -60,7 +60,6 @@ export default {
       await axios
         .post("https://localhost:7116/api/v1/request", this.request)
         .then((response) => {
-          // TO-DO: Mostrar pop-up de sucesso
           alert('Solicitação criada com sucesso');
           this.request.amount = undefined;
           this.request.bloodType = undefined;
@@ -95,7 +94,6 @@ form {
 }
 .inputs {
   display: flex;
-  /* background-color: blueviolet; */
   width: 100%;
   margin-bottom: 5%;
 }
@@ -112,8 +110,6 @@ label {
 }
 
 .radio-buttons {
-  /* background-color: aquamarine; */
-
   width: 100%;
   display: flex;
   align-items: center;
@@ -126,7 +122,6 @@ label {
   justify-content: flex-end;
   width: 90%;
   padding-top: 3%;
-  /* background-color: aqua; */
 }
 
 span{

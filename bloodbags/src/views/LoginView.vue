@@ -15,7 +15,6 @@ onMounted(async () => {
       hospitals.value = response.data;
     })
     .catch((error) => {
-      // TO-DO: Mostrar pop-up de erro
       console.error(error);
     });
 });
@@ -74,7 +73,6 @@ export default {
           this.hospitals = response.data;
         })
         .catch((error) => {
-          // TO-DO: Mostrar pop-up de erro
           console.error(error);
         });
     },

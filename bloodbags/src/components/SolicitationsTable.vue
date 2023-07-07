@@ -54,14 +54,11 @@ const types = ["A", "B", "AB", "O"];
             />
           </template>
         </td>
-        <td>
-          <!-- <PrimaryButton text="Excluir" /> -->
-        </td>
       </tr>
     </tbody>
   </table>
 </template>
-<!-- @click="handleAttendClick(item.id!, item.amount!)" -->
+
 <style scoped>
 table {
   border-radius: 20px;

@@ -3,7 +3,6 @@
     <h1>Adicionar bolsa</h1>
     <div class="add-bag-form">
       <form @submit.prevent="postData">
-        <!-- <input type="number" v-model="bloodbag.bloodType" placeholder="Tipo Sanguíneo"> -->
         <select
           v-model="bloodbag.bloodType"
           class="input"
@@ -16,7 +15,6 @@
           <option v-bind:value="2">AB</option>
           <option v-bind:value="3">O</option>
         </select>
-        <!-- <input type="text" v-model="bloodbag.rh" placeholder="Rh" class="input"> -->
         <select
           v-model="bloodbag.rh"
           class="input"
@@ -44,8 +42,8 @@ export default {
   data() {
     return {
       bloodbag: {
-        bloodType: undefined, // 1
-        hospitalId: +localStorage.getItem("hospitalId")!, // 1
+        bloodType: undefined,
+        hospitalId: +localStorage.getItem("hospitalId")!,
         rh: undefined,
       } as BloodBag,
     };
@@ -55,13 +53,11 @@ export default {
       await axios
         .post("https://localhost:7116/api/v1/bloodbag", this.bloodbag)
         .then((response) => {
-          // TO-DO: Mostrar pop-up de sucesso
           alert("Bolsa criada com sucesso!");
           this.bloodbag.bloodType = undefined;
           this.bloodbag.rh = undefined;
         })
         .catch((error) => {
-          // TO-DO: Mostrar pop-up de erro
           alert("Não foi possível adicionar a bolsa de sangue.");
         });
     },

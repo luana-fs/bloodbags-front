@@ -6,7 +6,6 @@ interface Request{
     rh?: true,
     amount?: number
 
-    // transient property
     showInput?: boolean
   }
 

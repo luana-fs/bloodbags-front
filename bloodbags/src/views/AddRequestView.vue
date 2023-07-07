@@ -26,7 +26,6 @@ main {
   flex-direction: column;
   height: 50%;
   width: 60%;
-  /* background-color: blue; */
 }
 .add-request-form {
   display: flex;

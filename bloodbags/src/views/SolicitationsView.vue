@@ -23,7 +23,6 @@ async function getRequests() {
       requests.value = response.data;
     })
     .catch((error) => {
-      // TO-DO: Mostrar pop-up de erro
       console.error(error);
     });
 }
@@ -32,11 +31,6 @@ function handleDonateClicked() {
   getRequests();
 }
 </script>
-
-<!-- int idHospital
-rh booleano
-bloodType number
-int amount -->
 
 <template>
   <div class="container">
@@ -66,7 +60,6 @@ int amount -->
 .container {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-content: center;
   position: absolute;
   top:120px;
