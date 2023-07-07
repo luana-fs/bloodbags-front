@@ -1,19 +1,13 @@
 <template>
   <form @submit.prevent="postData">
     <div class="inputs">
-      <BDropdown name="bloodtype" type="number" text="Tipo" required>
+      <BDropdown name="bloodtype" type="number" :text="textValue" required>
         <BDropdownItem @click="handleBloodTypeChange(0)">A</BDropdownItem>
         <BDropdownItem @click="handleBloodTypeChange(1)">B</BDropdownItem>
         <BDropdownItem @click="handleBloodTypeChange(2)">AB</BDropdownItem>
         <BDropdownItem @click="handleBloodTypeChange(3)">O</BDropdownItem>
       </BDropdown>
-      <!-- <select v-model="request.bloodType" name="bloodtype" id="">
-        <option value="0">A</option>
-        <option value="1">B</option>
-        <option value="2">AB</option>
-        <option value="3">O</option>
-      </select> -->
-      <span>{{ types[request.bloodType!] }}</span>
+      
       <div class="radio-buttons">
         <label for="rh">RH</label>
         <input required
@@ -51,6 +45,7 @@ export default {
   components: { Dropdown, PrimaryButton },
   data() {
     return {
+      textValue: "Tipo",
       request: {
         bloodType: undefined,
         hospitalId: +localStorage.getItem('hospitalId')!,
@@ -70,6 +65,7 @@ export default {
           this.request.amount = undefined;
           this.request.bloodType = undefined;
           this.request.rh = undefined;
+          this.textValue = "Tipo";
         })
         .catch((error) => {
           alert('Não foi possível criar a solicitação')
@@ -77,6 +73,7 @@ export default {
     },
     handleBloodTypeChange(value: any) {
       this.request.bloodType = value;
+      this.textValue = this.types[value];
     },
     isDisabled() {
     if (this.request.bloodType == undefined || this.request.rh == undefined || (this.request.amount == 0 || this.request.amount == undefined)) {
