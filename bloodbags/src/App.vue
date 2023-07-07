@@ -18,7 +18,7 @@ import Header from "@/components/Header.vue";
 }
 
 #container {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 50px);
   display: flex;
   justify-content: center;
   align-items: center;

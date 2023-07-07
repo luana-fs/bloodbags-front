@@ -40,7 +40,7 @@ const types = ["A", "B", "AB", "O"];
           <PrimaryButton
             id="amount-input"
             text="Atender"
-            @click="handleAttendClick(item.id!)"
+            @click="() => {handleAttendClick(item.id!); changeAmountInput()}"
           />
         </td>
         <td id="attend-action-column" v-else="">
@@ -51,7 +51,7 @@ const types = ["A", "B", "AB", "O"];
           />
         </td>
         <td>
-          <PrimaryButton text="Excluir" />
+          <!-- <PrimaryButton text="Excluir" /> -->
         </td>
       </tr>
     </tbody>

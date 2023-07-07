@@ -12,8 +12,6 @@ declare module 'vue' {
     BButton: typeof import('bootstrap-vue-next')['BButton']
     BDropdown: typeof import('bootstrap-vue-next')['BDropdown']
     BDropdownItem: typeof import('bootstrap-vue-next')['BDropdownItem']
-    BIcon: typeof import('bootstrap-vue-next')['BIcon']
-    BIconArrowUp: typeof import('bootstrap-vue-next')['BIconArrowUp']
     BloodBagsTable: typeof import('./src/components/BloodBagsTable.vue')['default']
     BNav: typeof import('bootstrap-vue-next')['BNav']
     Dropdown: typeof import('./src/components/Dropdown.vue')['default']
