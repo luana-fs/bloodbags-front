@@ -56,11 +56,13 @@ export default {
         .post("https://localhost:7116/api/v1/bloodbag", this.bloodbag)
         .then((response) => {
           // TO-DO: Mostrar pop-up de sucesso
-          console.log(response.data);
+          alert("Solicitação criada com sucesso!");
+          this.bloodbag.bloodType == undefined;
+          this.bloodbag.rh == undefined;
         })
         .catch((error) => {
           // TO-DO: Mostrar pop-up de erro
-          console.error(error);
+          alert("Não foi possível adicionar a bolsa de sangue.");
         });
     },
     isDisabled() {

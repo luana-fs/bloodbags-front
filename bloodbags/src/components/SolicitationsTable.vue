@@ -28,7 +28,8 @@ const types = ["A", "B", "AB", "O"];
         </td>
         <td>{{ item.amount }}</td>
         <td id="amount-td" v-if="item.showInput">
-          <input
+          <div id="actions">
+            <input
             id="amount-input"
             required
             type="number"
@@ -42,6 +43,7 @@ const types = ["A", "B", "AB", "O"];
             text="Atender"
             @click="() => {handleAttendClick(item.id!); changeAmountInput()}"
           />
+          </div>
         </td>
         <td id="attend-action-column" v-else="">
           <PrimaryButton
@@ -79,17 +81,10 @@ td {
   color: #252525;
 }
 
-#amount-td {
-  position: relative;
-}
+
 
 input#amount-input {
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 3%;
   border-radius: 10px;
-  border: none;
   width: 90px;
   background-color: #fff !important;
   border: #49b5a1 1px solid !important;
@@ -97,23 +92,23 @@ input#amount-input {
   height: 36px;
 }
 #amount-input {
-  position: absolute;
-  top: 6.5px;
-  bottom: 10px;
-  right: 3%;
-  border-radius: 10px;
-  border: none;
-  width: 90px;
   background-color: #fff !important;
   border: #49b5a1 1px solid !important;
   color: #49b5a1;
   height: 36px;
+
 }
 #attend-button {
   width: 100%;
 }
 #attend-action-column {
   width: 200px;
+}
+
+#actions{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 </style>
 
@@ -136,10 +131,10 @@ export default {
         })
         .then(() => {
           this.sendDonateClickedToFather();
+          alert('Solicitação atendida com sucesso!');
         })
         .catch((error) => {
-          // TO-DO: Mostrar pop-up de erro
-          console.error(error);
+         alert('Não foi possível atender a solicitação.')
         });
     },
     changeAmountInput() {

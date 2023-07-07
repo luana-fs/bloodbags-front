@@ -66,14 +66,13 @@ export default {
         .post("https://localhost:7116/api/v1/request", this.request)
         .then((response) => {
           // TO-DO: Mostrar pop-up de sucesso
-          console.log(response.data);
+          alert('Solicitação criada com sucesso');
           this.request.amount = undefined;
           this.request.bloodType = undefined;
           this.request.rh = undefined;
         })
         .catch((error) => {
-          // TO-DO: Mostrar pop-up de erro
-          console.error(error);
+          alert('Não foi possível criar a solicitação')
         });
     },
     handleBloodTypeChange(value: any) {
