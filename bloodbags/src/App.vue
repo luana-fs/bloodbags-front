@@ -14,6 +14,7 @@ import Header from "@/components/Header.vue";
 <style>
 :root {
   --primary: #49b5a1;
+  --text: #212121;
 }
 
 #container {

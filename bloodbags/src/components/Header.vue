@@ -1,6 +1,6 @@
 <template>
     <BNav class="header">
-        <h1>BloodBag Manager</h1>
+        <h1>Gerenciador de Hospitais</h1>
     </BNav>
 </template>
 

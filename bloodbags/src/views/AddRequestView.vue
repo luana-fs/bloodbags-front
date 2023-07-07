@@ -4,7 +4,15 @@ import AddRequestForm from "@/components/AddRequestForm.vue";
 
 <template>
   <main>
+    <div class="back-button">
+      <SecondaryButton
+        @click="$router.back()"
+        text="Voltar"
+        id="returnButton"
+      />
+    </div>
     <h1>Criar Solicitação</h1>
+
     <div class="add-request-form">
       <AddRequestForm />
     </div>
@@ -26,5 +34,9 @@ main {
   align-content: center;
   align-items: center;
   height: 100%;
+}
+
+.back-button {
+  width: 100%;
 }
 </style>

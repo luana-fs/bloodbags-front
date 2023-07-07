@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BloodBagsTable from "@/components/BloodBagsTable.vue";
+import Header from "@/components/Header.vue";
 import PrimaryButton from "@/components/PrimaryButton.vue";
 import SecondaryButton from "@/components/SecondaryButton.vue";
 import axios from "axios";
@@ -12,8 +14,8 @@ const id = localStorage.getItem("hospitalId");
 
 onMounted(async () => {
   await axios
-    .get(`https://localhost:7116/api/v1/bloodbag/2`)
-    // .get(`https://localhost:7116/api/v1/bloodbag/${id}`)
+    // .get(`https://localhost:7116/api/v1/bloodbag/2`)
+    .get(`https://localhost:7116/api/v1/bloodbag/${id}`)
     .then((response) => {
       console.log(response.data);
       bloodbags.value = response.data;
@@ -42,7 +44,12 @@ onMounted(async () => {
     </div>
 
     <h3>Estoque de Bolsas</h3>
-    <Table :data="bloodbags" :titles="['Tipo Sanguíneo', 'RH', 'Data']" />
+    <BloodBagsTable
+      v-if="bloodbags.length > 0"
+      :data="bloodbags"
+      :titles="['Tipo Sanguíneo', 'RH', 'Data']"
+    />
+    <p v-else="bloodbags.length < 1">O estoque está vazio.</p>
   </div>
 </template>
 
@@ -57,5 +64,10 @@ onMounted(async () => {
 .containerButton {
   margin-top: 1%;
   margin-bottom: 10%;
+}
+
+p {
+  color: var(--text);
+  font-weight: 500;
 }
 </style>

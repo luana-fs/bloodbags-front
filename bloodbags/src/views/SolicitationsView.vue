@@ -2,6 +2,7 @@
 import Header from "@/components/Header.vue";
 import PrimaryButton from "@/components/PrimaryButton.vue";
 import SecondaryButton from "@/components/SecondaryButton.vue";
+import SolicitationsTable from "@/components/SolicitationsTable.vue";
 import axios from "axios";
 
 import { onMounted, ref } from "vue";
@@ -31,36 +32,19 @@ int amount -->
 <template>
   <div class="container">
     <h1>Solicitações</h1>
-    <div class="btn-group containerButton">
+    <div class="containerButton">
       <SecondaryButton @click="$router.back()" text="Voltar" />
-      <PrimaryButton text="Criar solicitações" />
+      <PrimaryButton text="Criar solicitação" />
     </div>
 
-    <Table
-      :data="[
-        {
-          BloodType: 'AB',
-          Rh: true,
-          WithdrawalDate: '05/07/2023',
-        },
-        {
-          BloodType: 'O Mockado',
-          Rh: true,
-          WithdrawalDate: '05/07/2023',
-        },
-        {
-          BloodType: 'A mochado',
-          Rh: true,
-          WithdrawalDate: '05/07/2023',
-        },
-        {
-          BloodType: 'Adwewa',
-          Rh: true,
-          WithdrawalDate: '05/07/2023',
-        },
-      ]"
-      :titles="['Tipo Sanguíneo', 'RH', 'Quantidade']"
+    <SolicitationsTable
+      v-if="requests.length > 0"
+      :data="requests"
+      :titles="['Hospital', 'Tipo Sanguíneo', 'RH', 'Quantidade', 'Ações']"
     />
+    <p v-else="requests.length < 1">
+      Não há solicitações a serem mostradas no momento.
+    </p>
   </div>
 </template>
 
@@ -70,16 +54,16 @@ int amount -->
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  background-color: aquamarine;
-  height: 89vh;
 }
 .containerButton {
-  width: 50%;
+  width: 100%;
   justify-content: space-around;
-  height: 5%;
   margin-top: 3%;
   margin-bottom: 3%;
+}
 
-  background-color: red;
+p {
+  color: var(--text);
+  font-weight: 500;
 }
 </style>
