@@ -83,6 +83,9 @@ td {
   vertical-align: middle;
   color: #252525;
 }
+tr {
+  height: 46px;
+}
 
 
 
