@@ -13,8 +13,11 @@ const name = localStorage.getItem("hospitalName");
 const id = localStorage.getItem("hospitalId");
 
 onMounted(async () => {
+  getBloodBags(+id!);
+});
+
+async function getBloodBags(id: number) {
   await axios
-    // .get(`https://localhost:7116/api/v1/bloodbag/2`)
     .get(`https://localhost:7116/api/v1/bloodbag/${id}`)
     .then((response) => {
       console.log(response.data);
@@ -24,7 +27,12 @@ onMounted(async () => {
       // TO-DO: Mostrar pop-up de erro
       console.error(error);
     });
-});
+}
+
+function handleDeleteClicked() {
+  getBloodBags(+id!);
+}
+
 </script>
 
 <template>
@@ -48,6 +56,7 @@ onMounted(async () => {
       v-if="bloodbags.length > 0"
       :data="bloodbags"
       :titles="['Tipo Sanguíneo', 'RH', 'Data']"
+      @deleteClicked="handleDeleteClicked"
     />
     <p v-else="bloodbags.length < 1">O estoque está vazio.</p>
   </div>
