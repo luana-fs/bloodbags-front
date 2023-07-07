@@ -14,19 +14,14 @@ defineProps({
 <style scoped>
 .button {
   color: white;
-  background-color: #49b5a1;
-  border-radius: 10px;
-  border: none;
-  border: #49b5a1 1px solid;
-  margin: 2%;
-  padding-right: 3%;
-  padding-left: 3%;
+  background-color: var(--primary);
+  border: var(--primary) 1px solid;
 }
 
 .button:hover {
   background-color: #fff !important;
-  border: #49b5a1 1px solid;
-  color: #49b5a1;
+  border: var(--primary) 1px solid;
+  color: var(--primary);
 }
 .button:disabled {
   background-color: white !important;

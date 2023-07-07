@@ -7,7 +7,7 @@ import Header from "@/components/Header.vue";
 <template>
   <Header />
   <main id="container">
-    <RouterView id="router"/>
+    <RouterView id="router" />
   </main>
 </template>
 
@@ -15,6 +15,13 @@ import Header from "@/components/Header.vue";
 :root {
   --primary: #49b5a1;
   --text: #212121;
+}
+
+button {
+  padding-right: 3%;
+  padding-left: 3%;
+  margin-right: 2%;
+  margin-top: 2%;
 }
 
 #container {

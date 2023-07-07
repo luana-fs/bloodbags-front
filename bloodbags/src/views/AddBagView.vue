@@ -5,7 +5,11 @@ import AddBagForm from "@/components/AddBagForm.vue";
 
 <template>
   <main>
-    <SecondaryButton @click="$router.back()" text="Voltar" id="returnButton"/>
+    <SecondaryButton
+      @click="$router.back()"
+      text="Voltar"
+      class="back-button"
+    />
     <AddBagForm />
   </main>
 </template>
@@ -18,9 +22,7 @@ import AddBagForm from "@/components/AddBagForm.vue";
   align-items: center;
 }
 
-#returnButton {
+.back-button {
   margin-top: -100px;
 }
-
-
 </style>
