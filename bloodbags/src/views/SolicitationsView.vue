@@ -19,7 +19,6 @@ async function getRequests() {
   await axios
     .get(`https://localhost:7116/api/v1/request`)
     .then((response) => {
-      console.log(response.data);
       requests.value = response.data;
     })
     .catch((error) => {

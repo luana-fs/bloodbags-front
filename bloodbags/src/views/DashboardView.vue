@@ -20,7 +20,6 @@ async function getBloodBags(id: number) {
   await axios
     .get(`https://localhost:7116/api/v1/bloodbag/${id}`)
     .then((response) => {
-      console.log(response.data);
       bloodbags.value = response.data;
     })
     .catch((error) => {

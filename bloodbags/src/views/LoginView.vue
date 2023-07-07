@@ -11,7 +11,6 @@ onMounted(async () => {
   await axios
     .get("https://localhost:7116/api/v1/hospital")
     .then((response) => {
-      console.log(response.data);
       hospitals.value = response.data;
     })
     .catch((error) => {
@@ -69,7 +68,6 @@ export default {
       await axios
         .get("https://localhost:7116/api/v1/hospital")
         .then((response) => {
-          console.log(response.data);
           this.hospitals = response.data;
         })
         .catch((error) => {
@@ -77,7 +75,6 @@ export default {
         });
     },
     handleIdSelected(id: number, name: string) {
-      console.log(id);
       this.childId = id.toString();
       this.hospitalName = name;
     },
