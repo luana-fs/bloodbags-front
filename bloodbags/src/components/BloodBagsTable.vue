@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BloodBag from "@/interfaces/BloodBag";
 import PrimaryButton from "./PrimaryButton.vue";
+import axios from "axios";
 
 defineProps<{
   data: BloodBag[];
@@ -32,7 +33,7 @@ const types = ["A", "B", "AB", "O"];
         </td>
         <td>{{ formatDate(item.withdrawalDate!) }}</td>
         <td>
-          <PrimaryButton text="Excluir" />
+          <PrimaryButton text="Excluir" @click="handleDeleteButton(item.id!)" />
         </td>
       </tr>
     </tbody>
@@ -44,6 +45,7 @@ table {
   margin-top: 3%;
   border-radius: 20px;
 }
+
 th {
   text-align: center;
   color: #49b5a1;
@@ -60,3 +62,23 @@ td {
   color: #252525;
 }
 </style>
+
+<script lang="ts">
+export default {
+  methods:
+  {
+    sendDeleteInfoToParent() {
+      this.$emit("deleteClicked");
+    },
+    async handleDeleteButton(id: number) {
+      await axios.delete(`https://localhost:7116/api/v1/bloodbag/${id}`)
+        .then(() => {
+          // TO-DO: adicionar alertas
+          this.sendDeleteInfoToParent();
+        }).catch((error) => {
+          console.log(error);
+        });
+    }
+  }
+};
+</script>
