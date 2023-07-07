@@ -56,6 +56,7 @@ td {
   border-color: #49b5a1;
   border-bottom-width: 2px;
   text-align: center;
+  vertical-align: middle;
   color: #252525;
 }
 </style>

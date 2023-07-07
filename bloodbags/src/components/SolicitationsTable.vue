@@ -75,6 +75,7 @@ td {
   padding: 5px 0;
   border-top-width: 2px;
   text-align: center;
+  vertical-align: middle;
   color: #252525;
 }
 
