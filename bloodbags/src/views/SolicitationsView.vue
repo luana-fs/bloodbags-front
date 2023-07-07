@@ -63,8 +63,10 @@ int amount -->
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-content: center;
+  position: absolute;
+  top:120px;
 }
 .containerButton {
   width: 100%;

@@ -13,6 +13,8 @@
   color: #f1f1f1;
   background-color: #49b5a1;
   height: 100px;
+  position: absolute;
+  width: 100%;
 }
 
 img {
