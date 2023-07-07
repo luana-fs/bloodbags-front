@@ -124,12 +124,18 @@ const selectedAmount = ref(0);
 const showInput = ref(false);
 export default {
   methods: {
+    sendDonateClickedToFather() {
+      this.$emit("donateClicked");
+    },
     async handleAttendClick(idRequest: number) {
       await axios
         .post(`https://localhost:7116/api/v1/request/donate`, {
           donorId: +localStorage.getItem("hospitalId")!,
           requestId: idRequest,
           amount: selectedAmount.value,
+        })
+        .then(() => {
+          this.sendDonateClickedToFather();
         })
         .catch((error) => {
           // TO-DO: Mostrar pop-up de erro

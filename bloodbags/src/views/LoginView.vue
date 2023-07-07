@@ -30,7 +30,7 @@ onMounted(async () => {
         :id="childId"
         @selectId="handleIdSelected"
       />
-      <PrimaryButton @click="handleClick" text="Selecionar"></PrimaryButton>
+      <PrimaryButton @click="handleClick" text="Selecionar" :disabled="isDisabled()" id="bla"></PrimaryButton>
     </div>
   </main>
 </template>
@@ -50,6 +50,7 @@ main {
   justify-content: center;
   align-items: center;
 }
+
 </style>
 
 <script lang="ts">
@@ -86,6 +87,14 @@ export default {
       localStorage.setItem("hospitalId", this.childId);
       localStorage.setItem("hospitalName", this.hospitalName);
       router.push("/dashboard");
+    },
+    isDisabled() {
+      if (
+        this.hospitalName == ""
+      ) {
+        return true;
+      }
+      return false;
     },
   },
 };

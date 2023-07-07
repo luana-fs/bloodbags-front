@@ -10,7 +10,10 @@ import { onMounted, ref } from "vue";
 const requests = ref([]);
 
 onMounted(async () => {
-  // const id = localStorage.getItem("hospitalId");
+  getRequests()
+});
+
+async function getRequests() {
   await axios
     .get(`https://localhost:7116/api/v1/request`)
     .then((response) => {
@@ -21,7 +24,11 @@ onMounted(async () => {
       // TO-DO: Mostrar pop-up de erro
       console.error(error);
     });
-});
+}
+
+function handleDonateClicked() {
+  getRequests();
+}
 </script>
 
 <!-- int idHospital
@@ -44,6 +51,7 @@ int amount -->
       v-if="requests.length > 0"
       :data="requests"
       :titles="['Hospital', 'Tipo Sanguíneo', 'RH', 'Quantidade', 'Ações']"
+      @donateClicked="handleDonateClicked"
     />
     <p v-else="requests.length < 1">
       Não há solicitações a serem mostradas no momento.
