@@ -6,22 +6,20 @@ import Dropdown from "@/components/Dropdown.vue";
 import { onMounted, ref } from "vue";
 
 const hospitals = ref([]);
-
-onMounted(async () => {
-  await axios
-    .get("https://localhost:7116/api/v1/hospital")
-    .then((response) => {
-      hospitals.value = response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
 </script>
 
 <template>
   <main>
-    <div class="dropdown-and-button">
+    <div>
+      <form @submit.prevent="login">
+        <input required v-model="user.email" type="email" placeholder="Email">
+        <input required v-model="user.password" type="password" placeholder="Password">
+        <div>
+          <button>Login</button>
+        </div>
+      </form>
+    </div>
+    <!-- <div class="dropdown-and-button">
       <Dropdown
         :hospitais="hospitals"
         text="Selecione um Hospital"
@@ -29,7 +27,7 @@ onMounted(async () => {
         @selectId="handleIdSelected"
       />
       <PrimaryButton @click="handleClick" text="Selecionar" :disabled="isDisabled()" id="bla"></PrimaryButton>
-    </div>
+    </div> -->
   </main>
 </template>
 
@@ -48,49 +46,35 @@ main {
   justify-content: center;
   align-items: center;
 }
-
 </style>
 
 <script lang="ts">
 import axios from "axios";
 import router from "@/router";
+import type User from "@/interfaces/User";
 
 export default {
   data() {
     return {
-      hospitals: [],
-      childId: "",
-      hospitalName: "",
+      user: {
+        email : "",
+        password : ""
+      }
     };
   },
   methods: {
-    async getHospitals() {
+    async login() {
       await axios
-        .get("https://localhost:7116/api/v1/hospital")
+        .post("https://localhost:7116/api/v1/login", this.user)
         .then((response) => {
-          this.hospitals = response.data;
+          localStorage.setItem("hospitalId",response.data.hospitalId);
+          localStorage.setItem("hospitalName",response.data.hospitalName);
+          this.$router.push("/");
         })
         .catch((error) => {
-          console.error(error);
+          alert("Email ou senha invalidos.")
         });
-    },
-    handleIdSelected(id: number, name: string) {
-      this.childId = id.toString();
-      this.hospitalName = name;
-    },
-    handleClick() {
-      localStorage.setItem("hospitalId", this.childId);
-      localStorage.setItem("hospitalName", this.hospitalName);
-      router.push("/dashboard");
-    },
-    isDisabled() {
-      if (
-        this.hospitalName == ""
-      ) {
-        return true;
-      }
-      return false;
-    },
+    }
   },
 };
 </script>
