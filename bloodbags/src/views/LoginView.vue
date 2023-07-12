@@ -107,11 +107,11 @@ export default {
   methods: {
     async login() {
       await axios
-        .post("https://localhost:7116/api/v1/login", this.user)
+        .post("https://localhost:7116/api/v1/login",this.user)
         .then((response) => {
-          localStorage.setItem("hospitalId",response.data.hospitalId);
-          localStorage.setItem("hospitalName",response.data.hospitalName);
-          this.$router.push("/");
+          localStorage.setItem("hospitalId",response.data.id);
+          localStorage.setItem("hospitalName",response.data.name);
+          this.$router.push("/dashboard");
         })
         .catch((error) => {
           alert("Email ou senha invalidos.")
