@@ -63,7 +63,7 @@ export default {
     },
     isDisabled() {
       if (
-        this.bloodbag.bloodType == undefined ||
+        this.bloodbag.bloodType == undefined || 
         this.bloodbag.rh == undefined
       ) {
         return true;
